@@ -1,0 +1,25 @@
+{
+  "name": "heroku_selenium",
+  "description": "heroku_selenium_test",
+  "repository": "https://github.com/duolabmeng6/heroku_selenium",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": [
+    "selenium",
+    "python",
+    "falsk"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-chromedriver"
+    },
+    {
+      "url": "https://github.com/waggl/heroku-buildpack-system-fonts.git"
+    }
+  ]
+}
