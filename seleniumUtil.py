@@ -9,10 +9,11 @@ import platform
 # https://github.com/heroku/heroku-buildpack-google-chrome
 # https://github.com/heroku/heroku-buildpack-chromedriver
 # https://github.com/waggl/heroku-buildpack-system-fonts.git
+
 # CHROMEDRIVER_PATH = /app/.chromedriver/bin/chromedriver
 # GOOGLE_CHROME_BIN = /app/.apt/usr/bin/google-chrome
 
-def 浏览器_获取本地chrome():
+def get_chrome_win():
     opt = webdriver.ChromeOptions()
     opt.add_argument('--headless')
     opt.add_argument('--disable-gpu')
@@ -23,9 +24,9 @@ def 浏览器_获取本地chrome():
     driver = webdriver.Chrome(options=opt)
     return driver
 
-def testddd():
+def get_chrome_linux():
     if(platform.system().lower() == 'windows'):
-        return 浏览器_获取本地chrome()
+        return get_chrome_win()
 
     CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/app/.chromedriver/bin/chromedriver')
     GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/app/.apt/usr/bin/google-chrome')
@@ -45,17 +46,17 @@ def testddd():
     return driver
 
 
-# driver = 浏览器_获取本地chrome()
+# driver = get_chrome()
 
 def gethtml(url):
-    driver = testddd()
+    driver = get_chrome_linux()
     driver.get(url)
     html = driver.page_source
     driver.quit()
     return html
 
 def getpng(url):
-    driver = testddd()
+    driver = get_chrome_linux()
     driver.get(url)
     png = driver.get_screenshot_as_png()
     driver.quit()
