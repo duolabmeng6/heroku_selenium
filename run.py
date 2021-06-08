@@ -1,31 +1,30 @@
-# from flask import Flask, send_file, make_response, request
-from flask import Flask
-# import test as t
-# import io
+from flask import Flask, send_file, make_response,request
+import test as t
+import io
 
-my_awesome_app = Flask(__name__)
+app = Flask(__name__)
 
 
-@my_awesome_app.route('/')
+@app.route('/')
 def hello_world():
-    return 'Hello World! 123321'
+    return 'Hello World! 666'
 
 
-# @my_awesome_app.route("/gethtml", methods=['get'])
-# def gethtml():
-#     url = request.args.get("url")
-#     html = t.gethtml(url)
-#     return html
-#
-#
-# @my_awesome_app.route("/getpng", methods=['get'])
-# def getpng():
-#     url = request.args.get("url")
-#     image_data = t.getpng(url)
-#
-#     response = make_response(image_data)
-#     response.headers['Content-Type'] = 'image/jpg'
-#     return response
+@app.route("/gethtml", methods=['get'])
+def gethtml():
+    url = request.args.get("url")
+    html = t.gethtml(url)
+    return html
+
+
+@app.route("/getpng", methods=['get'])
+def getpng():
+    url = request.args.get("url")
+    image_data = t.getpng(url)
+
+    response = make_response(image_data)
+    response.headers['Content-Type'] = 'image/jpg'
+    return response
 
     # return send_file(
     #     io.BytesIO(html),
@@ -36,4 +35,4 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    my_awesome_app.run()
+    app.run(debug=True)

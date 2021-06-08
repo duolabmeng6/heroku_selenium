@@ -1,1 +1,1 @@
-web: gunicorn ff:my_awesome_app
+web: gunicorn run:app
