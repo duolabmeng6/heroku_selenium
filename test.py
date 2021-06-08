@@ -6,6 +6,7 @@ import platform
 # worker: python test.py
 
 
+
 # https://github.com/heroku/heroku-buildpack-google-chrome
 # https://github.com/heroku/heroku-buildpack-chromedriver
 # CHROMEDRIVER_PATH = /app/.chromedriver/bin/chromedriver
