@@ -14,7 +14,7 @@ web: gunicorn run:app
 
 运行python脚本
 ``` 
-# worker: python seleniumUtil.py
+worker: python seleniumUtil.py
 ```
 
 # 效果图
