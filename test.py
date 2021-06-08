@@ -6,6 +6,11 @@ import platform
 # worker: python test.py
 
 
+# https://github.com/heroku/heroku-buildpack-google-chrome
+# https://github.com/heroku/heroku-buildpack-chromedriver
+# CHROMEDRIVER_PATH = /app/.chromedriver/bin/chromedriver
+# GOOGLE_CHROME_BIN = /app/.apt/usr/bin/google-chrome
+
 def 浏览器_获取本地chrome():
     opt = webdriver.ChromeOptions()
     opt.add_argument('--headless')
@@ -21,8 +26,8 @@ def testddd():
     if(platform.system().lower() == 'windows'):
         return 浏览器_获取本地chrome()
 
-    CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
-    GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
+    CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/app/.chromedriver/bin/chromedriver')
+    GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/app/.apt/usr/bin/google-chrome')
 
     #CHROMEDRIVER_PATH = "chromedriver"
     #GOOGLE_CHROME_BIN = "headless-chromium"
