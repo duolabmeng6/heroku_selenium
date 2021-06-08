@@ -50,10 +50,12 @@ def gethtml(url):
     driver = testddd()
     driver.get(url)
     html = driver.page_source
+    driver.quit()
     return html
 
 def getpng(url):
     driver = testddd()
     driver.get(url)
-
-    return driver.get_screenshot_as_png()
+    png = driver.get_screenshot_as_png()
+    driver.quit()
+    return png
