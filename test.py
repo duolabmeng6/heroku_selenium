@@ -34,22 +34,9 @@ def testddd():
 
     options = Options()
     options.binary_location = GOOGLE_CHROME_BIN
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
     options.add_argument('--disable-gpu')
-    options.add_argument('--window-size=1366x768')
-    # options.add_argument('--user-data-dir=/tmp/user-data')
-    options.add_argument('--hide-scrollbars')
-    # options.add_argument('--enable-logging')
-    # options.add_argument('--log-level=0')
-    options.add_argument('--single-process')
-    # options.add_argument('--data-path=/tmp/data-path')
-    options.add_argument('--ignore-certificate-errors')
-    # options.add_argument('--homedir=/tmp')
-    # options.add_argument('--disk-cache-dir=/tmp/cache-dir')
-    options.add_argument(
-        'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36')
-
+    options.add_argument('--no-sandbox')
+    opt.add_argument('--window-size=1366x768')
     options.headless = True
 
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
